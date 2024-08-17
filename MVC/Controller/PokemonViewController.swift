@@ -1,19 +1,17 @@
 //
-//  ViewController.swift
+//  PokemonViewController.swift
 //  MVC
 //
-//  Created by Paola Delgadillo on 8/16/24.
+//  Created by Israel Aguilar on 8/16/24.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class PokemonViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
-
-
 }
-
