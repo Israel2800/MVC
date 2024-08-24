@@ -13,6 +13,7 @@ class PokemonViewController: UIViewController {
     
     
     let dataManager = PokemonDataManager()
+    var selectedPokemon : Pokemon?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,12 @@ class PokemonViewController: UIViewController {
         
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! PokemonDetailViewController
+        destination.receivedPokemon = selectedPokemon
+    }
+    
 }
 
 extension PokemonViewController : UITableViewDelegate, UITableViewDataSource {
@@ -98,5 +105,11 @@ extension PokemonViewController : UITableViewDelegate, UITableViewDataSource {
     //          return UIImageView.init(image: UIImage(named: "Pokemon"))
         
         }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Selected row: ", indexPath.row)
+        selectedPokemon = dataManager.getPokemon(at: indexPath.row)
+        self.performSegue(withIdentifier: "detailSegue", sender: self)
+    }
     
 }
