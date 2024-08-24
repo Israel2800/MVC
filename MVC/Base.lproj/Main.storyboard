@@ -16,9 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="130" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="SsN-WV-8qG">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="130" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="SsN-WV-8qG">
                                 <rect key="frame" x="16" y="59" width="361" height="759"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="pokemonCell" rowHeight="130" id="eLc-Bl-7Fh" customClass="PokemonCell" customModule="MVC" customModuleProvider="target">
@@ -69,6 +68,13 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="SsN-WV-8qG" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="9GA-C1-A8f"/>
+                            <constraint firstItem="SsN-WV-8qG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="jt2-yX-Ssf"/>
+                            <constraint firstItem="SsN-WV-8qG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="omW-a7-RLv"/>
+                            <constraint firstItem="SsN-WV-8qG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="y3x-P1-EcN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SsN-WV-8qG" secondAttribute="trailing" constant="16" id="yLg-Bm-8eg"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="pokemonTableView" destination="SsN-WV-8qG" id="UL3-3H-alh"/>

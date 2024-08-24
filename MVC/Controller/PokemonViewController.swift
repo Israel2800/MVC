@@ -40,6 +40,12 @@ extension PokemonViewController : UITableViewDelegate, UITableViewDataSource {
         let pokemon = dataManager.getPokemon(at: indexPath.row)
         cell.pokemonLabel.text = pokemon.name
         cell.pokemonImage.image = UIImage(named: pokemon.image)
+        
+        // Set background color for selected cell
+        let selectedRowBackground = UIView()
+        selectedRowBackground.backgroundColor = UIColor.red
+        cell.selectedBackgroundView = selectedRowBackground
+        
         return cell
     }
     
@@ -47,8 +53,50 @@ extension PokemonViewController : UITableViewDelegate, UITableViewDataSource {
 //        return "Pokemon"
 //    }
     
+    // Function to return the images in the table
+    
+    // func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    //    return UIImageView.init(image: UIImage(named: "Pokemon"))
+    // }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return UIImageView.init(image: UIImage(named: "Pokemon"))
-    }
+
+            //create container view
+            let containerView = UIView()
+            //      bgView.backgroundColor = UIColor.red.withAlphaComponent(CGFloat(0.1))
+            
+            //Create image view
+            let imgHeader = UIImageView.init(image: UIImage(named: "Pokemon"))
+            imgHeader.translatesAutoresizingMaskIntoConstraints = false
+            
+            // Create view for blur effect
+            let bgView = UIVisualEffectView()
+            bgView.translatesAutoresizingMaskIntoConstraints = false
+            
+            
+            // Create blur effect
+            let blurEffect = UIBlurEffect(style: .light)
+            bgView.effect = blurEffect
+            
+            containerView.addSubview(bgView)
+            containerView.addSubview(imgHeader)
+
+            containerView.heightAnchor.constraint(equalToConstant: imgHeader.frame.height).isActive = true
+            imgHeader.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
+            
+            NSLayoutConstraint.activate(
+                [
+                    bgView.topAnchor.constraint(equalTo: containerView.topAnchor)
+                   , bgView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
+                    ,bgView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor)
+                   , bgView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
+                ]
+            )
+            
+            return containerView
+            
+    //          return UIImageView.init(image: UIImage(named: "Pokemon"))
+        
+        }
     
 }
